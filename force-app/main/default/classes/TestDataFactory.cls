@@ -17,4 +17,19 @@ public class TestDataFactory {
         insert opp;
         return opp;
     }
+    public static void createTestCases(Id accId) {
+        Case case1 = new Case(
+            AccountId = accId,
+            Subject = 'Test Subject 1',
+            Status = 'New',
+            Priority = 'Medium'
+        );
+        Case case2 = new Case(
+            AccountId = accId,
+            Subject = 'Another Test Subject',
+            Status = 'Closed',
+            Priority = 'High'
+        );
+        insert new List<Case>{case1, case2};
+    }
 }
