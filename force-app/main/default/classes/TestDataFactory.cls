@@ -30,6 +30,18 @@ public class TestDataFactory {
             Status = 'Closed',
             Priority = 'High'
         );
-        insert new List<Case>{case1, case2};
+        Case case3 = new Case(
+            AccountId = accId,
+            Subject = 'More Case Subject',
+            Status = 'Closed',
+            Priority = 'High'
+        );
+        Case case4 = new Case(
+            AccountId = accId,
+            Subject = 'Another Case Subject',
+            Status = 'Closed',
+            Priority = 'High'
+        );
+        insert new List<Case>{case1,case2,case3, case4};
     }
 }

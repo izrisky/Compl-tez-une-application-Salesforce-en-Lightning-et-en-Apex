@@ -20,19 +20,18 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class AccountCasesControllerTest {
+private class CaseSelectorTest {
     @TestSetup
     static void setup() {
         Account testAccount = TestDataFactory.createTestAccount();
         TestDataFactory.createTestCases(testAccount.Id);
     }
-
     @IsTest
-    static void testfindCasesBySubject() {
+    static void testGetCasesByAccountIdAndSubject() {
         Account testAccount = [SELECT Id FROM Account LIMIT 1];
         Test.startTest();
-        List<Case> results = AccountCasesController.findCasesBySubject(testAccount.Id, 'Test');
+        List<Case> results = CaseSelector.getCasesByAccountIdAndSubject(testAccount.Id,'Test');
         Test.stopTest();
-        Assert.areEqual(2, results.size(), 'Should return 2 Cases');
+        Assert.areEqual(2, results.size(), 'Should return 2 Case');
     }
 }
